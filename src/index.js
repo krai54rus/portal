@@ -1,19 +1,18 @@
-import './assets/css/main.scss'
-// index.js
-// создание свойства класса без конструктора
-class Game {
-  name = 'Violin Charades'
-}
-const myGame = new Game()
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from "react-router-dom";
 
-// создаем параграф
-const p = document.createElement('p')
-p.textContent = `I like ${myGame.game}.`
+ReactDOM.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+  document.getElementById('root')
+);
 
-// создаем элемент заголовка
-const heading = document.createElement('h1')
-heading.textContent = 'Как интере!'
-
-// добавляем параграф и заголовок в DOM
-const root = document.querySelector('#root')
-root.append(heading, p)
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
