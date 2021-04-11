@@ -11,7 +11,7 @@ class BeerCard extends React.Component {
                 <img src="../../assets/img/flipflop.jpg" alt=""/>
               </div>
               <div className="beer-card-name">
-                <span>{this.props.name}</span>
+                <span>{this.props.item.name}</span>
               </div>
             </div>
             <div className="beer-card_info">
