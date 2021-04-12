@@ -11,15 +11,15 @@ class Header extends React.Component {
     return (
       <div className="header">
         <header className="header-container">
-          
+
           <div className="header-links">
             <div className="header-link">
               <Link to="/profile">Profile</Link>
             </div>
             <div className="header-link">
-              <Link to="/beer">Beer</Link>
+              <Link to="/">Beer</Link>
             </div>
-            
+
           </div>
         </header>
       </div>

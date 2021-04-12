@@ -16,7 +16,7 @@ class MainContent extends React.Component {
           <Route path="/profile">
             <Profile />
           </Route>
-          <Route path="/beer">
+          <Route path="/">
             <Beer />
           </Route>
         </Switch>

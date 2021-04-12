@@ -13,16 +13,18 @@ import MainContent from './components/MainContent';
 import './App.css';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {date: new Date()};
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {date: new Date()};
+  // }
   render(){
     return (
-      <div className="App">
-        <Header></Header>
-        <MainContent></MainContent>
-      </div>
+      <Router basename={process.env.PUBLIC_URL}>
+        <div className="App">
+          <Header></Header>
+          <MainContent></MainContent>
+        </div>
+      </Router>
     );
   }
 }

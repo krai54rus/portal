@@ -22,7 +22,7 @@ module.exports = {
   // ],
   plugins:[
     new HtmlWebpackPlugin({
-      title: 'webp react test',
+      title: 'ReactTest',
       template: path.resolve(appPath, './src/index.html'), // шаблон
       filename: 'index.html', // название выходного файла
     }),
