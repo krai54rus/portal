@@ -22,7 +22,7 @@ module.exports = {
   // ],
   plugins:[
     new HtmlWebpackPlugin({
-      title: 'ReactTest',
+      title: 'React Test',
       template: path.resolve(appPath, './src/index.html'), // шаблон
       filename: 'index.html', // название выходного файла
     }),
@@ -46,7 +46,11 @@ module.exports = {
          // изображения
          {
           test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
-          type: 'asset/resource',
+          // type: 'asset/resource',
+          loader: 'file-loader',
+          options: {
+            name: '[path][name].[ext]',
+          },
         },
         // шрифты и SVG
         {
