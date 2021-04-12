@@ -8,7 +8,7 @@ class BeerCard extends React.Component {
           <div className="beer-card">
             <div className="beer-card_intro">
               <div className="beer-card-img">
-                <img src="../../assets/img/flipflop.jpg" alt=""/>
+                <img src="/src/assets/img/flipflop.jpg" alt=""/>
               </div>
               <div className="beer-card-name">
                 <span>{this.props.name}</span>

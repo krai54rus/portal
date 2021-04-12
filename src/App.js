@@ -1,12 +1,12 @@
 import React from 'react';
-// import {
-//   BrowserRouter as Router,
-//   Switch,
-//   Route,
-//   Link,
-//   useRouteMatch,
-//   useParams
-// } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  // Switch,
+  // Route,
+  // Link,
+  // useRouteMatch,
+  // useParams
+} from "react-router-dom";
 import Header from './components/Header';
 import MainContent from './components/MainContent';
 
@@ -19,7 +19,7 @@ class App extends React.Component {
   // }
   render(){
     return (
-      <Router basename={process.env.PUBLIC_URL}>
+      <Router>
         <div className="App">
           <Header></Header>
           <MainContent></MainContent>
