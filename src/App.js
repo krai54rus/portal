@@ -10,7 +10,7 @@ import {
 import Header from './components/Header';
 import MainContent from './components/MainContent';
 
-import './App.css';
+import './assets/css/main.scss';
 
 class App extends React.Component {
   // constructor(props) {
