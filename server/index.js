@@ -7,6 +7,15 @@ const app = express();
 app.use(express.static(path.join(__dirname,"../build")));
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Router imports
+// import indexRouter from './routes/index';
+// import amazonRouter from './routes/amazon';
+// import securityRouter from './routes/security';
+// import catalogRouter from './routes/catalog';
+// import shoppingRouter from './routes/shopping';
+// import userRouter from './routes/user';
+// import orderRouter from './routes/orders';
+// import uiRouter from './routes/ui';
 const uri = config.url;
 const mongoClient = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoClient.connect((err, client) => {
@@ -14,15 +23,15 @@ mongoClient.connect((err, client) => {
 
   // Подрубаем роуты, пихаем туда экспресс объект для создания роутов и  монго объект для работы с бд
   require('./routes')(app, client);
-  app.get('/', function (req, res) {
-    res.send('Hello World')
-  })
+
+  // app.use('/', indexRouter);
+  // app.use('/beer', beerRouter);
+  // app.use('/amazon', amazonRouter);
+  // app.use('/catalog', catalogRouter);
 
   app.listen(1234, () => {
     console.log('сервер поехал');
   })
-  const collection = client.db("portal").collection("beer");
-  // perform actions on the collection object
-  // console.log(collection);
+  // const collection = client.db("portal").collection("beer");
   mongoClient.close();
 });
