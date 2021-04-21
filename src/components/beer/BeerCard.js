@@ -1,38 +1,38 @@
-import React from 'react';
-class BeerCard extends React.Component {
-//   constructor(props) {
-//     super(props);
-//   }
-  render(){
+import React, { useState, useEffect } from 'react';
+import photo from '../../assets/img/weisser.jpg';
+function BeerCard(props){
+  const [argState,funcState] = useState(1);
+  useEffect(() => {
+    console.log('effect has worked');
+  });
     return (
           <div className="beer-card">
             <div className="beer-card_intro">
-              <div className="beer-card-img">
-                <img src="./src/assets/img/flipflop1.jpg" alt=""/>
-              </div>
-              <div className="beer-card-name">
-                <span>{this.props.item.name}</span>
+            <div className="beer-card__img">
+                <img src={photo} alt={props.item.name}/>
               </div>
             </div>
-            <div className="beer-card_info">
-              <div className="beer-card-chars">
+            <div className="beer-card__info">
+            <div className="beer-card__name" onClick={() => funcState(argState + 1)}>
+                <span>{ props.item.name}</span>
+              </div>
+              <div className="beer-card__chars">
                 <div className="beer-abv">
-                  <span>ABV: 5.6 %</span>
+                  <span>ABV: { props.item.chars.abu} %</span>
                 </div>
                 <div className="beer-abv">
-                  <span>OG: 15 %</span>
+                  <span>OG: { props.item.chars.og} %</span>
                 </div>
                 <div className="beer-abv">
-                  <span>IBU: 8</span>
+                  <span>IBU: { props.item.chars.ibu}</span>
                 </div>
               </div>
-              <div className="beer-card-comment">
-                <span>Оч вкусно елки палки</span>
+              <div className="beer-card__comment">
+                <span>{ props.item.comment}</span>
               </div>
             </div>
           </div>
     );
-  }
 }
 
 export default BeerCard;

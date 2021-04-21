@@ -4,21 +4,25 @@ class Beer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      cards: [
-        {
-          name: "Flip Flop",
-          price: "208"
-        },
-        {
-          name: "Milk Stout",
-          price: "208"
-        }
-      ]
+      beers: []
     };
+    this.beerBorn = this.beerBorn.bind(this);
   }
   componentDidMount(){
+    console.log(this.state.beers);
     fetch('http://localhost:1234/beer')
-    .then(res=>console.log(res));
+    .then(res=>res.json())
+    .then(res=>{
+      console.log(res);
+      if (res.length) {
+        this.beerBorn(res);
+      }
+    });
+  }
+  beerBorn(arr){
+    this.setState(state => {
+      return {beers : arr};
+    });
   }
   render(){
     // const cards = this.state.cards.map((item) =>
@@ -35,7 +39,7 @@ class Beer extends React.Component {
 
         <div className="beer-content">
           {
-            this.state.cards.map((item) =>
+            this.state.beers.map((item) =>
               <BeerCard key={item.name} item={item} />
             )
           }
