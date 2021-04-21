@@ -23,7 +23,15 @@ mongoClient.connect((err, client) => {
 
   // Подрубаем роуты, пихаем туда экспресс объект для создания роутов и  монго объект для работы с бд
   require('./routes')(app, client);
-
+  // Test роутер для фронта - удалить
+  app.get('/beer',(req,res)=>{
+    const collection = client.db("portal").collection("beer");
+    collection.find({}).toArray(function(err, beers){
+        if(err) return console.log(err);
+        res.send(beers)
+    });
+  });
+  //
   // app.use('/', indexRouter);
   // app.use('/beer', beerRouter);
   // app.use('/amazon', amazonRouter);
@@ -33,5 +41,5 @@ mongoClient.connect((err, client) => {
     console.log('сервер поехал');
   })
   // const collection = client.db("portal").collection("beer");
-  mongoClient.close();
+  // mongoClient.close();
 });

@@ -16,7 +16,10 @@ class Beer extends React.Component {
       ]
     };
   }
-  
+  componentDidMount(){
+    fetch('http://localhost:1234/beer')
+    .then(res=>console.log(res));
+  }
   render(){
     // const cards = this.state.cards.map((item) =>
     //   <BeerCard key={item.name} item={item} />
