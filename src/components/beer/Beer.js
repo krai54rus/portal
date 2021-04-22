@@ -1,33 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import BeerCard from './BeerCard';
-class Beer extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      beers: []
-    };
-    this.beerBorn = this.beerBorn.bind(this);
-  }
-  componentDidMount(){
-    console.log(this.state.beers);
-    fetch('http://localhost:1234/beer')
-    .then(res=>res.json())
-    .then(res=>{
-      console.log(res);
-      if (res.length) {
-        this.beerBorn(res);
-      }
-    });
-  }
-  beerBorn(arr){
-    this.setState(state => {
-      return {beers : arr};
-    });
-  }
-  render(){
-    // const cards = this.state.cards.map((item) =>
-    //   <BeerCard key={item.name} item={item} />
-    // );
+function Beer (props){
+  // function syncWithServer() {
+  //   console.log(props.beers);
+  // }
+  // useEffect(() => {
+  //   syncWithServer();
+  // }, [props.beers]);
+
     return (
       <div className="beer-wrap">
         <div className="beer-header">
@@ -39,14 +19,13 @@ class Beer extends React.Component {
 
         <div className="beer-content">
           {
-            this.state.beers.map((item) =>
+            props.beers.map((item) =>
               <BeerCard key={item.name} item={item} />
             )
           }
         </div>
       </div>
     );
-  }
 }
 
 export default Beer;

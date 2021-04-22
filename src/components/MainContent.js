@@ -6,10 +6,27 @@ import {
 import Beer from './beer/Beer.js';
 import Profile from './profile/Profile.js';
 class MainContent extends React.Component {
-//   constructor(props) {
-//     super(props);
-//   }
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      beers: []
+    };
+    this.beerBorn = this.beerBorn.bind(this);
+  }
+  componentDidMount(){
+    fetch('http://localhost:1234/beer')
+    .then(res=>res.json())
+    .then(res=>{
+      if (res.length) {
+        this.beerBorn(res);
+      }
+    });
+  }
+  beerBorn(arr){
+    this.setState(state => {
+      return {beers : arr};
+    });
+  }
   render(){
     return (
       <div className="content-wrap">
@@ -18,7 +35,7 @@ class MainContent extends React.Component {
             <Profile />
           </Route>
           <Route path="/">
-            <Beer />
+            <Beer beers={this.state.beers} />
           </Route>
         </Switch>
       </div>
