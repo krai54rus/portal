@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import Beer from './beer/Beer.js';
 import Profile from './profile/Profile.js';
+import Modal from './global/Modal';
 class MainContent extends React.Component {
   constructor(props) {
     super(props);
@@ -23,6 +24,7 @@ class MainContent extends React.Component {
     });
   }
   beerBorn(arr){
+    console.log(arr);
     this.setState(state => {
       return {beers : arr};
     });
@@ -38,6 +40,7 @@ class MainContent extends React.Component {
             <Beer beers={this.state.beers} />
           </Route>
         </Switch>
+        <Modal />
       </div>
     );
   }
