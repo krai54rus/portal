@@ -15,10 +15,11 @@ function Beer (props){
     return (
       <div className="beer-wrap">
         <div className="beer-header">
-          <div className="beer-header-title">Лагеры</div>
-          <div className="beer-header-title">Стауты</div>
-          <div className="beer-header-title">IPA</div>
-          <div className="beer-header-title">Эли</div>
+          <div className="beer-header__title">Лагер</div>
+          <div className="beer-header__title">Стаут</div>
+          <div className="beer-header__title">IPA</div>
+          <div className="beer-header__title">Эль</div>
+          <div className="beer-header__title">Крафтовое</div>
           <div className="beer-header__plus" onClick={()=>showModal()}>
             <img src={add} alt=""/>
           </div>
