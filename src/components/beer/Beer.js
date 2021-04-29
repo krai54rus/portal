@@ -24,7 +24,20 @@ function Beer (props){
             <img src={add} alt=""/>
           </div>
         </div>
-
+        <div className="beer-filter">
+          <div className="beer-filter__spisok">
+            <div className="beer-filter__spisok_item">Все</div>
+            <div className="beer-filter__spisok_item">Witbeer</div>
+            <div className="beer-filter__spisok_item">Wiezen</div>
+            <div className="beer-filter__spisok_item">Темное</div>
+            <div className="beer-filter__spisok_item">Светлое нефильтрованное</div>
+          </div>
+          <div className="beer-filter__filter">
+              <div className="beer-filter__filter_btn">
+                <span>Расширенный фильтр</span>
+              </div>
+          </div>
+        </div>  
         <div className="beer-content">
           {
             props.beers.map((item) =>
