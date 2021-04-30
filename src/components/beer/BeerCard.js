@@ -10,6 +10,7 @@ function BeerCard(props){
             <div className="beer-card_intro">
             <div className="beer-card__img">
                 <img src={photo} alt={props.item.name}/>
+                {/* <img alt={props.item.name}/> */}
               </div>
             </div>
             <div className="beer-card__info">

@@ -10,9 +10,11 @@ class MainContent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      beers: []
+      beers: [],
+      styles:['Witbeer','Weizen','Stout','Лагер']
     };
     this.beerBorn = this.beerBorn.bind(this);
+    this.filterStyle = this.filterStyle.bind(this);
   }
   componentDidMount(){
     fetch('http://localhost:1234/beer')
@@ -22,6 +24,20 @@ class MainContent extends React.Component {
         this.beerBorn(res);
       }
     });
+  }
+  filterStyle(style){
+    fetch(`http://localhost:1234/beer/style?style=${style}`)
+    .then(res=>res.json())
+    .then(res=>{
+      console.log(res);
+      if (res.length) {
+        this.beerBorn(res);
+      }
+    });
+    console.log(style);
+  }
+  testF(res){
+    console.log(res);
   }
   beerBorn(arr){
     console.log(arr);
@@ -37,7 +53,7 @@ class MainContent extends React.Component {
             <Profile />
           </Route>
           <Route path="/">
-            <Beer beers={this.state.beers} />
+            <Beer styles = {this.state.styles} beers = {this.state.beers} filterStyle = {this.filterStyle} />
           </Route>
         </Switch>
         <Modal />
