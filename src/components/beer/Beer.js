@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import BeerCard from './BeerCard';
+import BeerContainer from './BeerContainer'
+// import BeerCard from './BeerCard';
+import ErrorBlock from '../global/ErrorBlock'
 import add from '../../assets/img/add.svg';
 function Beer (props){
   function showModal() {
@@ -47,13 +49,18 @@ function Beer (props){
               </div>
           </div>
         </div>
-        <div className="beer-content">
-          {
+        {/* <div className="beer-content"> */}
+          {props.errorBeer.err
+            ? <ErrorBlock message={props.errorBeer.message} />
+            : <BeerContainer beers={props.beers}/>
+          }
+          {/* {
+            !props.errorBeer.err &&
             props.beers.map((item,index) =>
               <BeerCard key={index} item={item} />
             )
-          }
-        </div>
+          } */}
+        {/* </div> */}
       </div>
     );
 }

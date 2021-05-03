@@ -11,9 +11,14 @@ class MainContent extends React.Component {
     super(props);
     this.state = {
       beers: [],
-      styles:['Witbeer','Weizen','Stout','Лагер']
+      styles:['Witbeer','Weizen','Stout','Лагер'],
+      errorObj:{
+        err:false,
+        message:'Ничего не найдено!',
+      },
     };
     this.beerBorn = this.beerBorn.bind(this);
+    this.changeError = this.changeError.bind(this);
     this.filterStyle = this.filterStyle.bind(this);
   }
   componentDidMount(){
@@ -23,7 +28,14 @@ class MainContent extends React.Component {
       if (res.length) {
         this.beerBorn(res);
       }
-    });
+    })
+    .catch(err=>{
+      this.changeError({
+        err:false,
+        message:'Ошибка сервера! Попробуйте перезагрузить страницу!'
+      });
+      console.log('error');
+    })
   }
   filterStyle(style){
     fetch(`http://localhost:1234/beer/style?style=${style}`)
@@ -45,6 +57,11 @@ class MainContent extends React.Component {
       return {beers : arr};
     });
   }
+  changeError(err){
+    this.setState(state =>{
+      return {errorObj:err};
+    });
+  }
   render(){
     return (
       <div className="content-wrap">
@@ -53,7 +70,7 @@ class MainContent extends React.Component {
             <Profile />
           </Route>
           <Route path="/">
-            <Beer styles = {this.state.styles} beers = {this.state.beers} filterStyle = {this.filterStyle} />
+            <Beer styles = {this.state.styles} errorBeer={this.state.errorObj} beers = {this.state.beers} filterStyle = {this.filterStyle} />
           </Route>
         </Switch>
         <Modal />
