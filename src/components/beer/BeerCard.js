@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import photo from '../../assets/img/weisser.jpg';
+// import photo from '../../assets/img/weisser.jpg';
 function BeerCard(props){
   const [argState,funcState] = useState(1);
   useEffect(() => {
@@ -9,7 +9,7 @@ function BeerCard(props){
           <div className="beer-card">
             <div className="beer-card_intro">
             <div className="beer-card__img">
-                <img src={photo} alt={props.item.name}/>
+                <img src={`../../assets/img/${props.item.img}`} alt={props.item.name}/>
                 {/* <img alt={props.item.name}/> */}
               </div>
             </div>

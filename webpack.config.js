@@ -62,7 +62,7 @@ module.exports = {
   mode: 'development',
     devServer: {
         historyApiFallback: true,
-        contentBase: path.resolve(appPath, './build'),
+        contentBase: path.resolve(appPath, './src'),
         open: true,
         compress: true,
         hot: true,
